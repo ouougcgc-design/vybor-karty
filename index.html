@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Выбор карты — подборка дебетовых и кредитных карт</title>
+<meta name="description" content="Простая подборка банковских карт: дебетовые и кредитные. Сравните и оформите онлайн.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:#f6f6f4;color:#151515;line-height:1.5}
+.wrap{max-width:760px;margin:0 auto;padding:40px 20px 30px}
+h1{font-size:32px;letter-spacing:-.5px}
+.sub{color:#666;margin:6px 0 28px}
+.tabs{display:flex;gap:8px;margin-bottom:20px}
+.tab{border:1px solid #ddd;background:#fff;padding:9px 18px;border-radius:99px;cursor:pointer;font-size:15px}
+.tab.on{background:#151515;color:#fff;border-color:#151515}
+.list{display:grid;gap:12px}
+.card{background:#fff;border:1px solid #e8e8e4;border-radius:16px;padding:20px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.bank{font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.5px}
+.name{font-size:19px;font-weight:600;margin:2px 0 8px}
+.perks{list-style:none;color:#444;font-size:14px}
+.perks li:before{content:"— ";color:#bbb}
+.btn{background:#151515;color:#fff;text-decoration:none;padding:12px 22px;border-radius:12px;font-size:15px;white-space:nowrap}
+.btn:hover{background:#333}
+.help{margin-top:36px;background:#151515;color:#fff;border-radius:20px;padding:28px;text-align:center}
+.help h2{font-size:22px;margin-bottom:6px}
+.help p{color:#bbb;margin-bottom:18px}
+.help a{display:inline-block;background:#fff;color:#151515;text-decoration:none;padding:12px 24px;border-radius:12px;font-weight:600}
+.note{font-size:12px;color:#999;margin-top:28px}
+@media(max-width:520px){h1{font-size:26px}.btn{width:100%;text-align:center}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Выбор карты</h1>
+  <p class="sub">Лучшие банковские карты в одном месте. Выберите и оформите онлайн за пару минут.</p>
+
+  <div class="tabs">
+    <button class="tab on" data-t="debit">Дебетовые</button>
+    <button class="tab" data-t="credit">Кредитные</button>
+  </div>
+
+  <div class="list" id="list"></div>
+
+  <div class="help">
+    <h2>Не знаете, что выбрать?</h2>
+    <p>Напишите мне — помогу подобрать карту под ваши задачи. Бесплатно.</p>
+    <a id="tg" href="#" target="_blank" rel="noopener">Написать в Telegram</a>
+  </div>
+
+  <p class="note">Реклама. Сайт не является банком. Подробные условия, тарифы и полная стоимость кредита — на сайте банка по кнопке «Оформить». Решение о выдаче карты принимает банк.</p>
+</div>
+
+<script>
+/* ===== НАСТРОЙКИ: меняйте только здесь ===== */
+
+// 1) Ваш Telegram без @
+var TG = "Edgar316";
+
+// 2) Карты. link — ваша партнёрская ссылка (например, из Pampadu).
+//    perks — короткие плюсы. Проверьте их по условиям оффера!
+var CARDS = {
+  debit: [
+    {bank:"Т-Банк", name:"Black", perks:["Кэшбэк рублями","Бесплатное обслуживание при условиях банка"], link:"ССЫЛКА_1"},
+    {bank:"Альфа-Банк", name:"Альфа-Карта", perks:["Кэшбэк на покупки","Доставка карты курьером"], link:"ССЫЛКА_2"},
+    {bank:"ВТБ", name:"Мультикарта", perks:["Кэшбэк в выбранных категориях","Оформление онлайн"], link:"ССЫЛКА_3"},
+    {bank:"Сбер", name:"СберКарта", perks:["Бонусы СберСпасибо","Удобное приложение"], link:"ССЫЛКА_4"},
+    {bank:"Озон Банк", name:"Ozon Карта", perks:["Выгода на покупки в Ozon","Бесплатное обслуживание"], link:"ССЫЛКА_5"},
+    {bank:"ПСБ", name:"Дебетовая карта", perks:["Кэшбэк на покупки","Оформление онлайн"], link:"ССЫЛКА_9"},
+    {bank:"ОТП Банк", name:"Дебетовая карта", perks:["Кэшбэк на покупки","Доставка карты"], link:"ССЫЛКА_10"},
+    {bank:"ОТП Банк", name:"ОТП Премиум", perks:["Премиальное обслуживание","Повышенный кэшбэк и привилегии"], link:"ССЫЛКА_11"},
+    {bank:"Ак Барс Банк", name:"Дебетовая карта", perks:["Кэшбэк на покупки","Оформление онлайн"], link:"ССЫЛКА_12"},
+    {bank:"УБРиР", name:"Дебетовая карта", perks:["Кэшбэк на покупки","Бесплатное обслуживание при условиях банка"], link:"ССЫЛКА_13"}
+  ],
+  credit: [
+    {bank:"Альфа-Банк", name:"Кредитная карта", perks:["Беспроцентный период","Решение онлайн"], link:"ССЫЛКА_6"},
+    {bank:"Т-Банк", name:"Платинум", perks:["Беспроцентный период","Доставка карты"], link:"ССЫЛКА_7"},
+    {bank:"ВТБ", name:"Кредитная карта", perks:["Беспроцентный период","Кэшбэк"], link:"ССЫЛКА_8"}
+  ]
+};
+
+/* ===== дальше ничего менять не нужно ===== */
+var list=document.getElementById("list");
+function show(t){
+  list.innerHTML=CARDS[t].map(function(c){
+    // если ссылки ещё нет — кнопка ведёт в ваш Telegram
+    var href=c.link.indexOf("http")===0?c.link:"https://t.me/"+TG;
+    return '<div class="card"><div><div class="bank">'+c.bank+'</div><div class="name">'+c.name+
+    '</div><ul class="perks">'+c.perks.map(function(p){return"<li>"+p+"</li>"}).join("")+
+    '</ul></div><a class="btn" href="'+href+'" target="_blank" rel="noopener sponsored">Оформить</a></div>';
+  }).join("");
+}
+document.querySelectorAll(".tab").forEach(function(b){
+  b.onclick=function(){
+    document.querySelectorAll(".tab").forEach(function(x){x.classList.remove("on")});
+    b.classList.add("on");show(b.dataset.t);
+  };
+});
+document.getElementById("tg").href="https://t.me/"+TG;
+show("debit");
+</script>
+</body>
+</html>
