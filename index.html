@@ -20,6 +20,7 @@ h1{font-size:32px;letter-spacing:-.5px}
 .name{font-size:19px;font-weight:600;margin:2px 0 8px}
 .perks{list-style:none;color:#444;font-size:14px}
 .perks li:before{content:"— ";color:#bbb}
+.erid{font-size:11px;color:#aaa;margin-top:8px}
 .btn{background:#151515;color:#fff;text-decoration:none;padding:12px 22px;border-radius:12px;font-size:15px;white-space:nowrap}
 .btn:hover{background:#333}
 .help{margin-top:36px;background:#151515;color:#fff;border-radius:20px;padding:28px;text-align:center}
@@ -61,21 +62,25 @@ var TG = "Edgar316";
 //    perks — короткие плюсы. Проверьте их по условиям оффера!
 var CARDS = {
   debit: [
-    {bank:"Т-Банк", name:"Black", perks:["Кэшбэк рублями","Бесплатное обслуживание при условиях банка"], link:"ССЫЛКА_1"},
-    {bank:"Альфа-Банк", name:"Альфа-Карта", perks:["Кэшбэк на покупки","Доставка карты курьером"], link:"ССЫЛКА_2"},
-    {bank:"ВТБ", name:"Мультикарта", perks:["Кэшбэк в выбранных категориях","Оформление онлайн"], link:"ССЫЛКА_3"},
-    {bank:"Сбер", name:"СберКарта", perks:["Бонусы СберСпасибо","Удобное приложение"], link:"ССЫЛКА_4"},
-    {bank:"Озон Банк", name:"Ozon Карта", perks:["Выгода на покупки в Ozon","Бесплатное обслуживание"], link:"ССЫЛКА_5"},
-    {bank:"ПСБ", name:"Дебетовая карта", perks:["Кэшбэк на покупки","Оформление онлайн"], link:"ССЫЛКА_9"},
-    {bank:"ОТП Банк", name:"Дебетовая карта", perks:["Кэшбэк на покупки","Доставка карты"], link:"ССЫЛКА_10"},
-    {bank:"ОТП Банк", name:"ОТП Премиум", perks:["Премиальное обслуживание","Повышенный кэшбэк и привилегии"], link:"ССЫЛКА_11"},
-    {bank:"Ак Барс Банк", name:"Дебетовая карта", perks:["Кэшбэк на покупки","Оформление онлайн"], link:"ССЫЛКА_12"},
-    {bank:"УБРиР", name:"Дебетовая карта", perks:["Кэшбэк на покупки","Бесплатное обслуживание при условиях банка"], link:"ССЫЛКА_13"}
+    {bank:"Т-Банк", name:"Дебетовая карта", perks:["Кэшбэк на покупки","Бесплатная доставка карты"], link:"https://trk.ppdu.ru/click/hRxt5cGF?erid=Kra23xCCG"},
+    {bank:"Альфа-Банк", name:"Альфа-Карта", perks:["Кэшбэк на покупки","Доставка карты курьером"], link:"https://trk.ppdu.ru/click/tGYu6cmo?erid=2SDnje2HATp"},
+    {bank:"ОТП Банк", name:"ОТП Премиум", perks:["Премиальное обслуживание","Повышенный кэшбэк и привилегии"], link:"https://trk.ppdu.ru/click/py68D9Tf?erid=2SDnjcSVLt2"},
+    {bank:"Озон Банк", name:"Ozon Карта", perks:["Выгода на покупки в Ozon","Оформление онлайн"], link:"https://trk.ppdu.ru/click/5CciS6FB?erid=2SDnjezs4Pe"},
+    {bank:"Ак Барс Банк", name:"Дебетовая карта", perks:["Кэшбэк на покупки","Оформление онлайн"], link:"https://trk.ppdu.ru/click/b2AuUHvv?erid=2SDnjdG7KhL"},
+    {bank:"Россельхозбанк", name:"Дебетовая карта", perks:["Кэшбэк на покупки","Оформление онлайн"], link:"https://trk.ppdu.ru/click/pNHhM648?erid=2SDnjdnvWLL"}
   ],
   credit: [
-    {bank:"Альфа-Банк", name:"Кредитная карта", perks:["Беспроцентный период","Решение онлайн"], link:"ССЫЛКА_6"},
-    {bank:"Т-Банк", name:"Платинум", perks:["Беспроцентный период","Доставка карты"], link:"ССЫЛКА_7"},
-    {bank:"ВТБ", name:"Кредитная карта", perks:["Беспроцентный период","Кэшбэк"], link:"ССЫЛКА_8"}
+    {bank:"ОТП Банк", name:"Кредитная карта «Далее»", perks:["Беспроцентный период","Решение онлайн"], link:"https://trk.ppdu.ru/click/DrXxNyBI?erid=2SDnjeiRuUn"},
+    {bank:"Яндекс", name:"Яндекс Сплит", perks:["Оплата покупок частями","Оформление онлайн"], link:"https://trk.ppdu.ru/click/pf78llXM?erid=2SDnjdJuo9L"},
+    {bank:"Ренессанс Банк", name:"Кредитная карта", perks:["Беспроцентный период","Решение онлайн"], link:"https://trk.ppdu.ru/click/iX01g2Ak?erid=2SDnjdFo9iJ"},
+    {bank:"Т-Банк", name:"Кредитная карта", perks:["Беспроцентный период","Бесплатная доставка карты"], link:"https://trk.ppdu.ru/click/9erxxcm3?erid=2SDnjc3BPsH"},
+    {bank:"ВТБ", name:"Кредитная карта", perks:["Беспроцентный период","Оформление онлайн"], link:"https://trk.ppdu.ru/click/bjrUAkI1?erid=2SDnjeGCc2T"},
+    {bank:"Уралсиб", name:"Кредитная карта", perks:["Беспроцентный период","Решение онлайн"], link:"https://trk.ppdu.ru/click/IitByMAs?erid=2SDnjbpvGx2"},
+    {bank:"ОТП Банк", name:"Кредитная карта", perks:["Беспроцентный период","Решение онлайн"], link:"https://trk.ppdu.ru/click/rPeCFJvU?erid=2SDnjee1d3Q"},
+    {bank:"Банк Зенит", name:"Кредитная карта", perks:["Беспроцентный период","Оформление онлайн"], link:"https://trk.ppdu.ru/click/ROuJe7Sd?erid=2SDnjdGKRVJ"},
+    {bank:"МТС Банк", name:"Кредитная карта", perks:["Беспроцентный период","Оформление онлайн"], link:"https://trk.ppdu.ru/click/mXgwdVch?erid=2SDnjco6Mtf"},
+    {bank:"Озон Банк", name:"Кредитная карта", perks:["Беспроцентный период","Выгода на покупки в Ozon"], link:"https://trk.ppdu.ru/click/zXYDmVdh?erid=2SDnjcGXYYi"},
+    {bank:"Ак Барс Банк", name:"Кредитная карта", perks:["Беспроцентный период","Решение онлайн"], link:"https://trk.ppdu.ru/click/Sgt2c8Kr?erid=2SDnjbrXxdX"}
   ]
 };
 
@@ -87,7 +92,7 @@ function show(t){
     var href=c.link.indexOf("http")===0?c.link:"https://t.me/"+TG;
     return '<div class="card"><div><div class="bank">'+c.bank+'</div><div class="name">'+c.name+
     '</div><ul class="perks">'+c.perks.map(function(p){return"<li>"+p+"</li>"}).join("")+
-    '</ul></div><a class="btn" href="'+href+'" target="_blank" rel="noopener sponsored">Оформить</a></div>';
+    '</ul>'+(c.link.indexOf("erid=")>0?'<div class="erid">Реклама · '+c.bank+' · erid: '+c.link.split("erid=")[1]+'</div>':'')+'</div><a class="btn" href="'+href+'" target="_blank" rel="noopener sponsored">Оформить</a></div>';
   }).join("");
 }
 document.querySelectorAll(".tab").forEach(function(b){
